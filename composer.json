@@ -1,0 +1,12 @@
+{
+    "name": "pskovititn/automatic-form-compilation",
+    "require": {
+        "phpoffice/phpword": "^0.15.0"
+    },
+    "authors": [
+        {
+            "name": "pskovitin",
+            "email": "a.pskovitin@gmail.com"
+        }
+    ]
+}
