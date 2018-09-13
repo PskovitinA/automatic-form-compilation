@@ -46,6 +46,20 @@ $orgTypes = array(
     'too' => array('ТОО','Товарищество с ограниченной ответственностью','ое','БИН'),
     'ip' => array('ИП','Индивидуальный предприниматель','ый','ИИН')
 );
+
+if ($_POST['orgType'] == 'too') {
+    $orgType = $orgTypes['too'][1];
+    $orgTypeShort = $orgTypes['too']['0'];
+    $orgNumType = $orgTypes['too'][3];
+    $orgTypeEnding = $orgTypes['too'][2];
+} else {
+    $orgType = $orgTypes['ip'][1];
+    $orgTypeShort = $orgTypes['ip']['0'];
+    $orgNumType = $orgTypes['ip'][3];
+    $orgTypeEnding = $orgTypes['ip'][2];
+}
+
+
 $orgNum = $_POST['orgNum'];
 $adressJur = $_POST['adressJur'];
 $adressPost = $adressJur;
@@ -57,40 +71,53 @@ if ($_POST['adressFact'] != $adressJur)
 
 //Банковские реквизиты. Держать актуальными.
 $bankInfo = array(
-    'ALT' => array('ATYNKZKA','Altyn Bank'),
-    'ACB' => array('LARIKZKA','AsiaCredit Bank'),
-    'RBK' => array('KINCKZKA','Bank RBK'),
-    'CBK' => array('TBKBKZKA','Capital Bank Kazakhstan'),
-    'DEL' => array('NFBAKZ23','Delta Bank'),
-    'FOR' => array('IRTYKZKA','ForteBank'),
-    'KAS' => array('CASPKZKA','Kaspi Bank'),
-    'QAZ' => array('SENIKZKA','Qazaq Banki'),
-    'TEN' => array('TNGRKZKX','Tengri Bank'),
-    'ATF' => array('ALMNKZKA','АТФБанк'),
-    'BKN' => array('KSNVKZKA','Банк Kassa Nova'),
-    'AST' => array('ASFBKZKA','Банк Астаны'),
-    'BCK' => array('KCJBKZKX','Банк ЦентрКредит'),
-    'BEC' => array('ABNAKZKX','Банк ЭкспоКредит'),
-    'ALF' => array('ALFAKZKA','ДБ "Альфа-Банк"'),
-    'CIN' => array('BKCHKZKA','ДБ "Банк Китая в Казахстане"'),
-    'KZI' => array('KZIBKZKA','ДБ «КЗИ Банк»'),
-    'PAK' => array('NBPAKZKA','ДБ «Национальный Банк Пакистана»'),
+    'ALT' => array('ATYNKZKA','АО "Altyn Bank" (ДБ АО "Народный Банк Казахстана")'),
+    'ACB' => array('LARIKZKA','АО "AsiaCredit Bank (АзияКредит Банк)"'),
+    'RBK' => array('KINCKZKA','Акционерное общество "Банк "Bank RBK"'),
+    'CBK' => array('TBKBKZKA','АО "Capital Bank Kazakhstan"'),
+    'DEL' => array('NFBAKZ23','АО "Delta Bank"'),
+    'FOR' => array('IRTYKZKA','АО "ForteBank"'),
+    'KAS' => array('CASPKZKA','АО "KASPI BANK"'),
+    'QAZ' => array('SENIKZKA','АО "Qazaq Banki"'),
+    'TEN' => array('TNGRKZKX','АО "Tengri Bank"'),
+    'ATF' => array('ALMNKZKA','АО "АТФБанк"'),
+    'BKN' => array('KSNVKZKA','АО "Банк Kassa Nova"'),
+    'AST' => array('ASFBKZKA','АО "Банк "Астаны"'),
+    'BCK' => array('KCJBKZKX','АО "Банк ЦентрКредит"'),
+    'BEC' => array('ABNAKZKX','Акционерное общество "First Heartland Bank"'),
+    'ALF' => array('ALFAKZKA','АО "ДОЧЕРНИЙ БАНК "АЛЬФА-БАНК"'),
+    'CIN' => array('BKCHKZKA','АО ДБ "БАНК КИТАЯ В КАЗАХСТАНЕ"'),
+    'KZI' => array('KZIBKZKA','АО "ДБ "КАЗАХСТАН-ЗИРААТ ИНТЕРНЕШНЛ БАНК"'),
+    'PAK' => array('NBPAKZKA','АО ДБ "Национальный Банк Пакистана" в Казахстане'),
     'HOM' => array('INLMKZKA','ДБ АО "Банк Хоум Кредит"'),
-    'SBR' => array('SABRKZKA','ДБ АО «Сбербанк России»'),
+    'SBR' => array('SABRKZKA','ДБ АО "Сбербанк"'),
     'VTB' => array('VTBAKZKZ','ДО АО Банк ВТБ (Казахстан)'),
-    'EVR' => array('EURIKZKA','Евразийский Банк'),
-    'ZHI' => array('HCSKKZKA','Жилстройсбербанк Казахстана'),
-    'ZAM' => array('ZAJSKZ22','Заман-Банк'),
-    'HIL' => array('HLALKZKZ','Исламский Банк "Al-Hilal"'),
-    'INV' => array('KAZSKZKA','Казинвестбанк'),
-    'KKB' => array('KZKOKZKX','Казкоммерцбанк'),
-    'HSB' => array('HSBKKZKX','Народный сберегательный банк Казахстана'),
-    'NUR' => array('NURSKZKX','Нурбанк'),
-    'CIT' => array('CITIKZKA','Ситибанк Казахстан'),
-    'BCA' => array('ICBKKZKX','ТП Банк Китая в Алматы'),
-    'CES' => array('TSESKZKA','Цеснабанк'),
-    'SBK' => array('SHBKKZKA','Шинхан Банк Казахстан'),
-    'EXI' => array('EXKAKZKA','Эксимбанк Казахстан'),
+    'EVR' => array('EURIKZKA','АО "Евразийский Банк"'),
+    'ZHI' => array('HCSKKZKA','АО "Жилстройсбербанк Казахстана"'),
+    'ZAM' => array('ZAJSKZ22','АО "Исламский банк "Заман-Банк"'),
+    'HIL' => array('HLALKZKZ','АО "Исламский Банк "Al Hilal"'),
+    'INV' => array('KAZSKZKA','АО "Казинвестбанк"'),
+    'KKB' => array('KZKOKZKX','АО "КАЗКОММЕРЦБАНК"'),
+    'HSB' => array('HSBKKZKX','АО "Народный Банк Казахстана"'),
+    'NUR' => array('NURSKZKX','АО "Нурбанк"'),
+    'CIT' => array('CITIKZKA','АО "Ситибанк Казахстан"'),
+    'BCA' => array('ICBKKZKX','АО "Торгово-промышленный Банк Китая в г. Алматы"'),
+    'CES' => array('TSESKZKA','АО "Цеснабанк"'),
+    'SBK' => array('SHBKKZKA','АО "Шинхан Банк Казахстан"'),
+    'EXI' => array('EXKAKZKA','АО "ЭКСИМБАНК КАЗАХСТАН"'),
+    'CED' => array('CEDUKZKA','АО "ЦЕНТРАЛЬНЫЙ ДЕПОЗИТАРИЙ ЦЕННЫХ БУМАГ"'),
+    'DVK' => array('DVKAKZKA','АО "Банк Развития Казахстана"'),
+    'EAB' => array('EABRKZKA','ЕВРАЗИЙСКИЙ БАНК РАЗВИТИЯ'),
+    'GCV' => array('GCVPKZ2A','НАО "Государственная корпорация "Правительство для граждан"'),
+    'INE' => array('INEARUMM','г.Москва Межгосударственный Банк'),
+    'KIC' => array('KICEKZKX','АО "Казахстанская фондовая биржа"'),
+    'KIS' => array('KISCKZKX','РГП "Казахстанский центр межбанковских расчетов НБРК"'),
+    'KKM' => array('KKMFKZ2A','РГУ "Комитет казначейства Министерства финансов РК"'),
+    'KPS' => array('KPSTKZKA','АО "КАЗПОЧТА"'),
+    'NBP' => array('NBPFKZKX','"Банк-кастодиан АО  "ЕНПФ"'),
+    'NBR' => array('NBRKKZKX','Республиканское Государств Учреждение  Национальный Банк РК'),
+    'NCC' => array('NCCBRUMM','НКО-ЦК "Национальный Клиринговый Центр" (АО)'),
+
 );
 
 $orgLeaderFullName = $_POST['orgLeaderName'];
@@ -101,11 +128,19 @@ $orgLeaderShortName = $m[0] . ' ' . substr($m[1],0,2) . '.' . substr($m[2],0,2) 
 if ($m[2] == null)
     $orgLeaderShortName = $m[0] . ' ' . substr($m[1],0,2) . '.';
 
+$orgLeaderReason = $_POST['orgLeaderReason'];
+
+
+//доп к договору. Нужно добавить возможность делать дополнительные допы.
 $supplementNum = $_POST['supplementNum'];
 $supplementDate = $agreementDate;
 
 $commission = $_POST['commission'];
 $cashback = $_POST['cashback'];
+
+$responsiblePartnerName = $_POST['responsiblePartnerName'];
+$responsiblePartnerEmail = $_POST['responsiblePartnerEmail'];
+$responsiblePartnerPhone = $_POST['responsiblePartnerPhone'];
 
 //Выбираем данные по нашей стороне
 
@@ -114,6 +149,10 @@ $attorneyArray = array(
     'AZA' => array('Начальника управления продаж Ешманова Азамата Улановича, действующего на основании Доверенности № 4 от 16.04.2018 г.','Начальник управления продаж','Ешманов Азамат Уланович','Ешманова А. У.'),
     'ZHA' => array('Начальника отдела активных продаж Жолдас Жалгаса Жарасулы, действующего на основании Доверенности № 8 от 05.06.2018 г.','Начальник отдела активных продаж','Жолдас Жалгас Жарасулы','Жолдас Ж. Ж.'),
 );
+
+$responsibleRahmetName = $_POST['responsibleRahmetName'];
+$responsibleRahmetEmail = $_POST['responsibleRahmetEmail'];
+$responsibleRahmetPhone = $_POST['responsibleRahmetPhone'];
 
 $fileName = "Dogovor" . "$agreementNum" . ".docx";
 
@@ -125,4 +164,14 @@ $templateProcessor->setValue('orgName', "$orgName");
 
 $templateProcessor->saveAs("$fileName");
 
-file_force_download($fileName);
+echo $agreementNum;
+echo $agreementDate;
+echo $city;
+echo $orgType;
+echo $orgType;
+echo $orgTypeShort;
+echo $orgNumType;
+echo $orgTypeEnding;
+
+
+//file_force_download($fileName);
