@@ -66,7 +66,7 @@ $adressPost = $adressJur;
 $adressFact = $adressJur;
 
 //Проверка фактического адреса на совпадение с юридическим
-if ($_POST['adressFact'] != $adressJur)
+if ($_POST['adressFact'] !== $adressJur)
     $adressFact = $_POST['adressFact'];
 
 //Банковские реквизиты. Держать актуальными.
@@ -120,6 +120,194 @@ $bankInfo = array(
 
 );
 
+//Выбираем переменные из массива
+switch ($_POST['bankSelect']) {
+    case 'ALT':
+        $bankName = $bankInfo['ALT'][1];
+        $bankID = $bankInfo['ALT'][0];
+        break;
+    case 'ACB':
+        $bankName = $bankInfo['ACB'][1];
+        $bankID = $bankInfo['ACB'][0];
+        break;
+    case 'RBK':
+        $bankName = $bankInfo['RBK'][1];
+        $bankID = $bankInfo['RBK'][0];
+        break;
+    case 'CBK':
+        $bankName = $bankInfo['CBK'][1];
+        $bankID = $bankInfo['CBK'][0];
+        break;
+    case 'DEL':
+        $bankName = $bankInfo['DEL'][1];
+        $bankID = $bankInfo['DEL'][0];
+        break;
+    case 'FOR':
+        $bankName = $bankInfo['FOR'][1];
+        $bankID = $bankInfo['FOR'][0];
+        break;
+    case 'KAS':
+        $bankName = $bankInfo['KAS'][1];
+        $bankID = $bankInfo['KAS'][0];
+        break;
+    case 'QAZ':
+        $bankName = $bankInfo['QAZ'][1];
+        $bankID = $bankInfo['QAZ'][0];
+        break;
+    case 'TEN':
+        $bankName = $bankInfo['TEN'][1];
+        $bankID = $bankInfo['TEN'][0];
+        break;
+    case 'ATF':
+        $bankName = $bankInfo['ATF'][1];
+        $bankID = $bankInfo['ATF'][0];
+        break; 
+    case 'BKN':
+        $bankName = $bankInfo['BKN'][1];
+        $bankID = $bankInfo['BKN'][0];
+        break;
+    case 'AST':
+        $bankName = $bankInfo['AST'][1];
+        $bankID = $bankInfo['AST'][0];
+        break;
+    case 'BCK':
+        $bankName = $bankInfo['BCK'][1];
+        $bankID = $bankInfo['BCK'][0];
+        break;
+    case 'BEC':
+        $bankName = $bankInfo['BEC'][1];
+        $bankID = $bankInfo['BEC'][0];
+        break;
+    case 'ALF':
+        $bankName = $bankInfo['ALF'][1];
+        $bankID = $bankInfo['ALF'][0];
+        break;
+    case 'CIN':
+        $bankName = $bankInfo['CIN'][1];
+        $bankID = $bankInfo['CIN'][0];
+        break;
+    case 'KZI':
+        $bankName = $bankInfo['KZI'][1];
+        $bankID = $bankInfo['KZI'][0];
+        break;
+    case 'PAK':
+        $bankName = $bankInfo['PAK'][1];
+        $bankID = $bankInfo['PAK'][0];
+        break;
+    case 'HOM':
+        $bankName = $bankInfo['HOM'][1];
+        $bankID = $bankInfo['HOM'][0];
+        break;
+    case 'SBR':
+        $bankName = $bankInfo['SBR'][1];
+        $bankID = $bankInfo['SBR'][0];
+        break;
+    case 'VTB':
+        $bankName = $bankInfo['VTB'][1];
+        $bankID = $bankInfo['VTB'][0];
+        break;
+    case 'EVR':
+        $bankName = $bankInfo['EVR'][1];
+        $bankID = $bankInfo['EVR'][0];
+        break;
+    case 'ZHI':
+        $bankName = $bankInfo['ZHI'][1];
+        $bankID = $bankInfo['ZHI'][0];
+        break;
+    case 'ZAM':
+        $bankName = $bankInfo['ZAM'][1];
+        $bankID = $bankInfo['ZAM'][0];
+        break;
+    case 'HIL':
+        $bankName = $bankInfo['HIL'][1];
+        $bankID = $bankInfo['HIL'][0];
+        break;
+    case 'INV':
+        $bankName = $bankInfo['INV'][1];
+        $bankID = $bankInfo['INV'][0];
+        break;
+    case 'KKB':
+        $bankName = $bankInfo['KKB'][1];
+        $bankID = $bankInfo['KKB'][0];
+        break;
+    case 'HSB':
+        $bankName = $bankInfo['HSB'][1];
+        $bankID = $bankInfo['HSB'][0];
+        break;
+    case 'NUR':
+        $bankName = $bankInfo['NUR'][1];
+        $bankID = $bankInfo['NUR'][0];
+        break; 
+    case 'CIT':
+        $bankName = $bankInfo['CIT'][1];
+        $bankID = $bankInfo['CIT'][0];
+        break;
+    case 'BCA':
+        $bankName = $bankInfo['BCA'][1];
+        $bankID = $bankInfo['BCA'][0];
+        break;
+    case 'CES'
+        $bankName = $bankInfo['CES'],[1];
+        $bankID = $bankInfo['CES'],[0];
+        break;
+    case 'SBK':
+        $bankName = $bankInfo['SBK'][1];
+        $bankID = $bankInfo['SBK'][0];
+        break;
+    case 'EXI':
+        $bankName = $bankInfo['EXI'][1];
+        $bankID = $bankInfo['EXI'][0];
+        break;
+    case 'CED':
+        $bankName = $bankInfo['CED'][1];
+        $bankID = $bankInfo['CED'][0];
+        break;
+    case 'DVK':
+        $bankName = $bankInfo['DVK'][1];
+        $bankID = $bankInfo['DVK'][0];
+        break;
+    case 'EAB':
+        $bankName = $bankInfo['EAB'][1];
+        $bankID = $bankInfo['EAB'][0];
+        break;
+    case 'GCV':
+        $bankName = $bankInfo['GCV'][1];
+        $bankID = $bankInfo['GCV'][0];
+        break;
+    case 'INE':
+        $bankName = $bankInfo['INE'][1];
+        $bankID = $bankInfo['INE'][0];
+        break;
+    case 'KIC':
+        $bankName = $bankInfo['KIC'][1];
+        $bankID = $bankInfo['KIC'][0];
+        break;
+    case 'KIS':
+        $bankName = $bankInfo['KIS'][1];
+        $bankID = $bankInfo['KIS'][0];
+        break;
+    case 'KKM':
+        $bankName = $bankInfo['KKM'][1];
+        $bankID = $bankInfo['KKM'][0];
+        break;
+    case 'KPS':
+        $bankName = $bankInfo['KPS'][1];
+        $bankID = $bankInfo['KPS'][0];
+        break;
+    case 'NBP':
+        $bankName = $bankInfo['NBP'][1];
+        $bankID = $bankInfo['NBP'][0];
+        break;
+    case 'NBR':
+        $bankName = $bankInfo['NBR'][1];
+        $bankID = $bankInfo['NBR'][0];
+        break;
+    case 'NCC':
+        $bankName = $bankInfo['NCC'][1];
+        $bankID = $bankInfo['NCC'][0];
+        break;
+    };
+
 $orgLeaderFullName = $_POST['orgLeaderName'];
 
 //Добываем инициалы из имени
@@ -172,6 +360,11 @@ echo $orgType;
 echo $orgTypeShort;
 echo $orgNumType;
 echo $orgTypeEnding;
+echo $orgLeaderFullName
+echo $orgLeaderShortName
+echo $orgLeaderReason
+echo $bankID
+echo $bankName
 
 
 //file_force_download($fileName);
