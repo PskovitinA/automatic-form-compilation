@@ -40,6 +40,7 @@ $agreementNum = $_POST['agreementNum'];
 $orgName = $_POST['orgName'];
 $city = $_POST['city'];
 $agreementDate = $_POST['date'];
+$agreementDate = date('d ' . $months[date('n')] . ' Y', strtotime($agreementDate));
 
 //Массив для разных типов организаций
 $orgTypes = array(
@@ -64,6 +65,7 @@ $orgNum = $_POST['orgNum'];
 $adressJur = $_POST['adressJur'];
 $adressPost = $adressJur;
 $adressFact = $adressJur;
+$orgPhone = $_POST['orgPhone'];
 
 //Проверка фактического адреса на совпадение с юридическим
 if ($_POST['adressFact'] !== $adressJur)
@@ -246,9 +248,9 @@ switch ($_POST['bankSelect']) {
         $bankName = $bankInfo['BCA'][1];
         $bankID = $bankInfo['BCA'][0];
         break;
-    case 'CES'
-        $bankName = $bankInfo['CES'],[1];
-        $bankID = $bankInfo['CES'],[0];
+    case 'CES':
+        $bankName = $bankInfo['CES'][1];
+        $bankID = $bankInfo['CES'][0];
         break;
     case 'SBK':
         $bankName = $bankInfo['SBK'][1];
@@ -308,6 +310,8 @@ switch ($_POST['bankSelect']) {
         break;
     };
 
+$bankAccount = $_POST['bankAccount'];
+
 $orgLeaderFullName = $_POST['orgLeaderName'];
 
 //Добываем инициалы из имени
@@ -321,10 +325,14 @@ $orgLeaderReason = $_POST['orgLeaderReason'];
 
 //доп к договору. Нужно добавить возможность делать дополнительные допы.
 $supplementNum = $_POST['supplementNum'];
-$supplementDate = $agreementDate;
+$supplementDate = $_POST['supplementDate'];
+$supplementDate = date('d ' . $months[date('n')] . ' Y', strtotime($supplementDate));
 
 $commission = $_POST['commission'];
 $cashback = $_POST['cashback'];
+
+$workingHours = $_POST['workingHours'];
+$placePhone = $_POST['placePhone'];
 
 $responsiblePartnerName = $_POST['responsiblePartnerName'];
 $responsiblePartnerEmail = $_POST['responsiblePartnerEmail'];
@@ -334,9 +342,27 @@ $responsiblePartnerPhone = $_POST['responsiblePartnerPhone'];
 
 $attorneyArray = array(
     'SAD' => array('Начальника управления продаж Махсутова Садыра Уркашовича, действующего на основании Доверенности № 5 от 16.04.2018 г.','Начальник управления продаж','Махсутов Садыр Уркашович','Махсутов С.А.'),
-    'AZA' => array('Начальника управления продаж Ешманова Азамата Улановича, действующего на основании Доверенности № 4 от 16.04.2018 г.','Начальник управления продаж','Ешманов Азамат Уланович','Ешманова А. У.'),
+    'AZA' => array('Начальника управления продаж Ешманова Азамата Улановича, действующего на основании Доверенности № 4 от 16.04.2018 г.','Начальник управления продаж','Ешманов Азамат Уланович','Ешманов А. У.'),
     'ZHA' => array('Начальника отдела активных продаж Жолдас Жалгаса Жарасулы, действующего на основании Доверенности № 8 от 05.06.2018 г.','Начальник отдела активных продаж','Жолдас Жалгас Жарасулы','Жолдас Ж. Ж.'),
 );
+
+switch ($_POST['attorney']) {
+    case 'SAD':
+        $attorney = $attorneyArray['SAD'][0];
+        $attorneyPosition = $attorneyArray['SAD']['1'];
+        $attorneyShortName = $attorneyArray['SAD'][3];
+        break;
+    case 'AZA':
+        $attorney = $attorneyArray['AZA'][0];
+        $attorneyPosition = $attorneyArray['AZA']['1'];
+        $attorneyShortName = $attorneyArray['AZA'][3];
+        break;
+    case 'ZHA':
+        $attorney = $attorneyArray['ZHA'][0];
+        $attorneyPosition = $attorneyArray['ZHA']['1'];
+        $attorneyShortName = $attorneyArray['ZHA'][3];
+        break;
+}
 
 $responsibleRahmetName = $_POST['responsibleRahmetName'];
 $responsibleRahmetEmail = $_POST['responsibleRahmetEmail'];
@@ -345,26 +371,102 @@ $responsibleRahmetPhone = $_POST['responsibleRahmetPhone'];
 $fileName = "Dogovor" . "$agreementNum" . ".docx";
 
 $templateProcessor->setValue('agreementNum', "$agreementNum");
-$templateProcessor->setValue('agreementDate', date('d ' . $months[date('n')] . ' Y'));
-$templateProcessor->setValue('city', 'Алматы');
-$templateProcessor->setValue('orgType', 'Товарищество с ограниченной ответственностью');
+$templateProcessor->setValue('agreementDate', "$agreementDate");
+$templateProcessor->setValue('city', "$city");
+$templateProcessor->setValue('orgType', "$orgType");
 $templateProcessor->setValue('orgName', "$orgName");
+$templateProcessor->setValue('orgTypeEnding', "$orgTypeEnding");
+$templateProcessor->setValue('orgLeaderFullName', "$orgLeaderFullName");
+$templateProcessor->setValue('orgLeaderShortName', "$orgLeaderShortName");
+$templateProcessor->setValue('orgLeaderReason', "$orgLeaderReason");
+$templateProcessor->setValue('attorney', "$attorney");
+$templateProcessor->setValue('attorneyPosition', "$attorneyPosition");
+$templateProcessor->setValue('attorneyShortName', "$attorneyShortName");
+$templateProcessor->setValue('orgTypeShort', "$orgTypeShort");
+$templateProcessor->setValue('orgNumType', "$orgNumType");
+$templateProcessor->setValue('orgNum', "$orgNum");
+$templateProcessor->setValue('adressJur', "$adressJur");
+$templateProcessor->setValue('adressFact', "$adressFact");
+$templateProcessor->setValue('adressPost', "$adressPost");
+$templateProcessor->setValue('orgPhone', "$orgPhone");
+$templateProcessor->setValue('supplementNum', "$supplementNum");
+$templateProcessor->setValue('supplementDate', "$supplementDate");
+$templateProcessor->setValue('commission', "$commission");
+$templateProcessor->setValue('cashback', "$cashback");
+$templateProcessor->setValue('workingHours', "$workingHours");
+$templateProcessor->setValue('placePhone', "$placePhone");
+$templateProcessor->setValue('responsiblePartnerName', "$responsiblePartnerName");
+$templateProcessor->setValue('responsiblePartnerEmail', "$responsiblePartnerEmail");
+$templateProcessor->setValue('responsiblePartnerPhone', "$responsiblePartnerPhone");
+$templateProcessor->setValue('responsibleRahmetName', "$responsibleRahmetName");
+$templateProcessor->setValue('responsibleRahmetEmail', "$responsibleRahmetEmail");
+$templateProcessor->setValue('responsibleRahmetPhone', "$responsibleRahmetPhone");
+$templateProcessor->setValue('bankName', "$bankName");
+$templateProcessor->setValue('bankName', "$bankName");
+$templateProcessor->setValue('bankAccount', "#$bankAccount");
+$templateProcessor->setValue('bankId', "$bankID");
+
+
 
 $templateProcessor->saveAs("$fileName");
 
 echo $agreementNum;
+echo '<br><hr>';
 echo $agreementDate;
+echo '<br><hr>';
 echo $city;
+echo '<br><hr>';
 echo $orgType;
-echo $orgType;
+echo '<br><hr>';
 echo $orgTypeShort;
+echo '<br><hr>';
 echo $orgNumType;
+echo '<br><hr>';
 echo $orgTypeEnding;
-echo $orgLeaderFullName
-echo $orgLeaderShortName
-echo $orgLeaderReason
-echo $bankID
-echo $bankName
+echo '<br><hr>';
+echo $orgLeaderFullName;
+echo '<br><hr>';
+echo $orgLeaderShortName;
+echo '<br><hr>';
+echo $orgLeaderReason;
+echo '<br><hr>';
+echo $bankID;
+echo '<br><hr>';
+echo $bankName;
+echo '<br><hr>';
+echo $orgNum;
+echo '<br><hr>';
+echo $adressJur;
+echo '<br><hr>';
+echo $adressPost;
+echo '<br><hr>';
+echo $adressFact;
+echo '<br><hr>';
+echo $supplementNum;
+echo '<br><hr>';
+echo $supplementDate;
+echo '<br><hr>';
+echo $commission;
+echo '<br><hr>';
+echo $cashback;
+echo '<br><hr>';
+echo $responsiblePartnerName;
+echo '<br><hr>';
+echo $responsiblePartnerEmail;
+echo '<br><hr>';
+echo $responsiblePartnerPhone;
+echo '<br><hr>';
+echo $attorney;
+echo '<br><hr>';
+echo $attorneyPosition;
+echo '<br><hr>';
+echo $attorneyShortName;
+echo '<br><hr>';
+echo $responsibleRahmetName;
+echo '<br><hr>';
+echo $responsibleRahmetEmail;
+echo '<br><hr>';
+echo $responsibleRahmetPhone;
+echo '<br><hr>';
 
-
-//file_force_download($fileName);
+file_force_download($fileName);
