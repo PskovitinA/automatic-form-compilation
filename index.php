@@ -68,7 +68,7 @@ $adressFact = $adressJur;
 $orgPhone = $_POST['orgPhone'];
 
 //Проверка фактического адреса на совпадение с юридическим
-if ($_POST['adressFact'] !== $adressJur)
+if ($_POST['adressFact'] != $adressJur)
     $adressFact = $_POST['adressFact'];
 
 //Банковские реквизиты. Держать актуальными.
@@ -313,13 +313,13 @@ switch ($_POST['bankSelect']) {
 $bankAccount = $_POST['bankAccount'];
 
 $orgLeaderFullName = $_POST['orgLeaderName'];
-
+$orgLeaderShortName =$_POST['orgLeaderShortName'];
 //Добываем инициалы из имени
-$m = explode(' ', $orgLeaderFullName);
+/*$m = explode(' ', $orgLeaderFullName);
 $orgLeaderShortName = $m[0] . ' ' . substr($m[1],0,2) . '.' . substr($m[2],0,2) . '.' ;
 if ($m[2] == null)
     $orgLeaderShortName = $m[0] . ' ' . substr($m[1],0,2) . '.';
-
+*/
 $orgLeaderReason = $_POST['orgLeaderReason'];
 
 
@@ -331,6 +331,7 @@ $supplementDate = date('d ' . $months[date('n')] . ' Y', strtotime($supplementDa
 $commission = $_POST['commission'];
 $cashback = $_POST['cashback'];
 
+$placeAdress = $_POST['placeAdress'];
 $workingHours = $_POST['workingHours'];
 $placePhone = $_POST['placePhone'];
 
@@ -393,6 +394,7 @@ $templateProcessor->setValue('supplementNum', "$supplementNum");
 $templateProcessor->setValue('supplementDate', "$supplementDate");
 $templateProcessor->setValue('commission', "$commission");
 $templateProcessor->setValue('cashback', "$cashback");
+$templateProcessor->setValue('placeAdress', "$placeAdress");
 $templateProcessor->setValue('workingHours', "$workingHours");
 $templateProcessor->setValue('placePhone', "$placePhone");
 $templateProcessor->setValue('responsiblePartnerName', "$responsiblePartnerName");
@@ -403,70 +405,9 @@ $templateProcessor->setValue('responsibleRahmetEmail', "$responsibleRahmetEmail"
 $templateProcessor->setValue('responsibleRahmetPhone', "$responsibleRahmetPhone");
 $templateProcessor->setValue('bankName', "$bankName");
 $templateProcessor->setValue('bankName', "$bankName");
-$templateProcessor->setValue('bankAccount', "#$bankAccount");
+$templateProcessor->setValue('bankAccount', "$bankAccount");
 $templateProcessor->setValue('bankId', "$bankID");
 
-
-
 $templateProcessor->saveAs("$fileName");
-
-echo $agreementNum;
-echo '<br><hr>';
-echo $agreementDate;
-echo '<br><hr>';
-echo $city;
-echo '<br><hr>';
-echo $orgType;
-echo '<br><hr>';
-echo $orgTypeShort;
-echo '<br><hr>';
-echo $orgNumType;
-echo '<br><hr>';
-echo $orgTypeEnding;
-echo '<br><hr>';
-echo $orgLeaderFullName;
-echo '<br><hr>';
-echo $orgLeaderShortName;
-echo '<br><hr>';
-echo $orgLeaderReason;
-echo '<br><hr>';
-echo $bankID;
-echo '<br><hr>';
-echo $bankName;
-echo '<br><hr>';
-echo $orgNum;
-echo '<br><hr>';
-echo $adressJur;
-echo '<br><hr>';
-echo $adressPost;
-echo '<br><hr>';
-echo $adressFact;
-echo '<br><hr>';
-echo $supplementNum;
-echo '<br><hr>';
-echo $supplementDate;
-echo '<br><hr>';
-echo $commission;
-echo '<br><hr>';
-echo $cashback;
-echo '<br><hr>';
-echo $responsiblePartnerName;
-echo '<br><hr>';
-echo $responsiblePartnerEmail;
-echo '<br><hr>';
-echo $responsiblePartnerPhone;
-echo '<br><hr>';
-echo $attorney;
-echo '<br><hr>';
-echo $attorneyPosition;
-echo '<br><hr>';
-echo $attorneyShortName;
-echo '<br><hr>';
-echo $responsibleRahmetName;
-echo '<br><hr>';
-echo $responsibleRahmetEmail;
-echo '<br><hr>';
-echo $responsibleRahmetPhone;
-echo '<br><hr>';
 
 file_force_download($fileName);
