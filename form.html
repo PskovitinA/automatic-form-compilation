@@ -3,124 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <title>Форма отправки</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<h1>Форма автозаполнения договора</h1>
-
-<form action="index.php" method="post" id="form1">
-    Номер договора:  <input type="text" name="agreementNum" /><br />
-
-    Город:  <input type="radio" name="city" id="Almaty" value="Алматы">
-            <label for="Almaty">Алматы</label>
-            <input type="radio" name="city" id="Astana" value="Астана">
-            <label for="Astana">Астана</label><br />
-
-    Дата:   <input type="date" name="date"><br />
-
-    Поверенный со стороны Рахмета:
-    <input type="radio" name="attorney" id="SAD" value="SAD">
-    <label for="SAD">Махсутов С.А.</label>
-    <input type="radio" name="attorney" id="AZA" value="AZA">
-    <label for="AZA">Ешманова А. У.</label>
-    <input type="radio" name="attorney" id="ZHA" value="ZHA">
-    <label for="ZHA">Жолдас Ж. Ж.</label>
-
-    <h2>Информация по партнеру</h2>
-
-    Форма организации: <input type="radio" name="orgType" id="too" value="too">
-            <label for="too">ТОО</label>
-            <input type="radio" name="orgType" id="ip" value="ip">
-            <label for="ip">ИП</label><br />
-
-    Название организации: <input type="text" name="orgName" /><br />
-
-    Директор(в родительном падеже): <input type="text" name="orgLeaderName" /><br />
-    Директор, инициалы: <input type="text" name="orgLeaderShortName" /><br />
-    Действующий на основании: <input type="text" name="orgLeaderReason" /><br />
-
-    БИН/ИИН:  <input type="text" name="orgNum" /><br />
-
-    Банк: <select form="form1" name="bankSelect">
-    <option value="ALT">АО "Altyn Bank" (ДБ АО "Народный Банк Казахстана")</option>
-    <option value="ACB">АО "AsiaCredit Bank (АзияКредит Банк)"</option>
-    <option value="RBK">Акционерное общество "Банк "Bank RBK"'</option>
-    <option value="CBK">АО "Capital Bank Kazakhstan"</option>
-    <option value="DEL">АО "Delta Bank"</option>
-    <option value="FOR">АО "ForteBank"</option>
-    <option value="KAS">АО "KASPI BANK"</option>
-    <option value="QAZ">АО "Qazaq Banki"</option>
-    <option value="TEN">АО "Tengri Bank"</option>
-    <option value="ATF">АО "АТФБанк"</option>
-    <option value="BKN">АО "Банк Kassa Nova"</option>
-    <option value="AST">АО "Банк "Астаны"</option>
-    <option value="BCK">АО "Банк ЦентрКредит"</option>
-    <option value="BEC">Акционерное общество "First Heartland Bank"</option>
-    <option value="ALF">АО "ДОЧЕРНИЙ БАНК "АЛЬФА-БАНК"</option>
-    <option value="CIN">АО ДБ "БАНК КИТАЯ В КАЗАХСТАНЕ"</option>
-    <option value="KZI">АО "ДБ "КАЗАХСТАН-ЗИРААТ ИНТЕРНЕШНЛ БАНК"</option>
-    <option value="PAK">АО ДБ "Национальный Банк Пакистана" в Казахстане</option>
-    <option value="HOM">ДБ АО "Банк Хоум Кредит"</option>
-    <option value="SBR">ДБ АО "Сбербанк"</option>
-    <option value="VTB">ДО АО Банк ВТБ (Казахстан)</option>
-    <option value="EVR">АО "Евразийский Банк"</option>
-    <option value="ZHI">АО "Жилстройсбербанк Казахстана"</option>
-    <option value="ZAM">АО "Исламский банк "Заман-Банк"</option>
-    <option value="HIL">АО "Исламский Банк "Al Hilal"</option>
-    <option value="INV">АО "Казинвестбанк"</option>
-    <option value="KKB">АО "КАЗКОММЕРЦБАНК"</option>
-    <option value="HSB">АО "Народный Банк Казахстана"</option>
-    <option value="NUR">АО "Нурбанк"</option>
-    <option value="CIT">АО "Ситибанк Казахстан"</option>
-    <option value="BCA">АО "Торгово-промышленный Банк Китая в г. Алматы"</option>
-    <option value="CES">АО "Цеснабанк"</option>
-    <option value="SBK">АО "Шинхан Банк Казахстан"</option>
-    <option value="EXI">АО "ЭКСИМБАНК КАЗАХСТАН"</option>
-    <option value="CED">АО "ЦЕНТРАЛЬНЫЙ ДЕПОЗИТАРИЙ ЦЕННЫХ БУМАГ"</option>
-    <option value="DVK">АО "Банк Развития Казахстана"</option>
-    <option value="EAB">ЕВРАЗИЙСКИЙ БАНК РАЗВИТИЯ</option>
-    <option value="GCV">НАО "Государственная корпорация "Правительство для граждан"</option>
-    <option value="INE">г.Москва Межгосударственный Банк</option>
-    <option value="KIC">АО "Казахстанская фондовая биржа"</option>
-    <option value="KIS">РГП "Казахстанский центр межбанковских расчетов НБРК"</option>
-    <option value="KKM">РГУ "Комитет казначейства Министерства финансов РК"</option>
-    <option value="KPS">АО "КАЗПОЧТА"</option>
-    <option value="NBP">"Банк-кастодиан АО  "ЕНПФ"</option>
-    <option value="NBR">Республиканское Государств Учреждение  Национальный Банк РК</option>
-    <option value="NCC">НКО-ЦК "Национальный Клиринговый Центр" (АО)</option>
-    </select><br />
-
-    Рассчетный счет: <input type="text" name="bankAccount" /><br />
-
-    Юридический адрес: <input type="text" name="adressJur" /><br />
-
-    Фактический адрес: <input type="text" name="adressFact" /><br />
-
-    Телефон: <input type="text" name="orgPhone" /><br />
-
-    <h2>Доп. соглашение</h2>
-
-    Номер приложения: <input type="text" name="supplementNum" /><br />
-    Дата:   <input type="date" name="supplementDate"><br />
-
-    Комиссия: <input type="text" name="commission" /><br />
-    Кэшбэк: <input type="text" name="cashback" /><br />
-
-    Адрес заведения: <input type="text" name="placeAdress" /><br />
-    График работы заведения: <input type="text" name="workingHours" /><br />
-    Телефон заведения: <input type="text" name="placePhone" /><br />
-
-    Ответственный со стороны доверителя: <input type="text" name="responsiblePartnerName" /><br />
-    Email: <input type="text" name="responsiblePartnerEmail" /><br />
-    Телефон: <input type="text" name="responsiblePartnerPhone" /><br />
-
-    Ответственный со стороны поверенного: <input type="text" name="responsibleRahmetName" /><br />
-    Email: <input type="text" name="responsibleRahmetEmail" /><br />
-    Телефон: <input type="text" name="responsibleRahmetPhone" /><br />
-
-    <input type="submit" name="submit" value="Отправь меня!" />
-
-</form>
-
+<body class="fixed-sidebar pace-done">
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg" style="min-height: 608px;">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Форма автозаполнения договора</h1>
+            </div>
+            <div class="wrapper wrapper-content ">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="index.php" method="post" id="form1">
+                                Номер договора:  <input type="text" name="agreementNum" /><br />
+                
+                                Город:  <input type="radio" name="city" id="Almaty" value="Алматы">
+                                        <label for="Almaty">Алматы</label>
+                                        <input type="radio" name="city" id="Astana" value="Астана">
+                                        <label for="Astana">Астана</label><br />
+                
+                                Дата:   <input type="date" name="date"><br />
+                
+                                Поверенный со стороны Рахмета:
+                                <input type="radio" name="attorney" id="SAD" value="SAD">
+                                <label for="SAD">Махсутов С.А.</label>
+                                <input type="radio" name="attorney" id="AZA" value="AZA">
+                                <label for="AZA">Ешманова А. У.</label>
+                                <input type="radio" name="attorney" id="ZHA" value="ZHA">
+                                <label for="ZHA">Жолдас Ж. Ж.</label>
+                
+                                <h2>Информация по партнеру</h2>
+                
+                                Форма организации: <input type="radio" name="orgType" id="too" value="too">
+                                        <label for="too">ТОО</label>
+                                        <input type="radio" name="orgType" id="ip" value="ip">
+                                        <label for="ip">ИП</label><br />
+                
+                                Название организации: <input type="text" name="orgName" /><br />
+                
+                                Директор(в родительном падеже): <input type="text" name="orgLeaderName" /><br />
+                                Директор, инициалы: <input type="text" name="orgLeaderShortName" /><br />
+                                Действующий на основании: <input type="text" name="orgLeaderReason" /><br />
+                
+                                БИН/ИИН:  <input type="text" name="orgNum" /><br />
+                
+                                Банк: <select form="form1" name="bankSelect">
+                                <option value="ALT">АО "Altyn Bank" (ДБ АО "Народный Банк Казахстана")</option>
+                                <option value="ACB">АО "AsiaCredit Bank (АзияКредит Банк)"</option>
+                                <option value="RBK">Акционерное общество "Банк "Bank RBK"'</option>
+                                <option value="CBK">АО "Capital Bank Kazakhstan"</option>
+                                <option value="DEL">АО "Delta Bank"</option>
+                                <option value="FOR">АО "ForteBank"</option>
+                                <option value="KAS">АО "KASPI BANK"</option>
+                                <option value="QAZ">АО "Qazaq Banki"</option>
+                                <option value="TEN">АО "Tengri Bank"</option>
+                                <option value="ATF">АО "АТФБанк"</option>
+                                <option value="BKN">АО "Банк Kassa Nova"</option>
+                                <option value="AST">АО "Банк "Астаны"</option>
+                                <option value="BCK">АО "Банк ЦентрКредит"</option>
+                                <option value="BEC">Акционерное общество "First Heartland Bank"</option>
+                                <option value="ALF">АО "ДОЧЕРНИЙ БАНК "АЛЬФА-БАНК"</option>
+                                <option value="CIN">АО ДБ "БАНК КИТАЯ В КАЗАХСТАНЕ"</option>
+                                <option value="KZI">АО "ДБ "КАЗАХСТАН-ЗИРААТ ИНТЕРНЕШНЛ БАНК"</option>
+                                <option value="PAK">АО ДБ "Национальный Банк Пакистана" в Казахстане</option>
+                                <option value="HOM">ДБ АО "Банк Хоум Кредит"</option>
+                                <option value="SBR">ДБ АО "Сбербанк"</option>
+                                <option value="VTB">ДО АО Банк ВТБ (Казахстан)</option>
+                                <option value="EVR">АО "Евразийский Банк"</option>
+                                <option value="ZHI">АО "Жилстройсбербанк Казахстана"</option>
+                                <option value="ZAM">АО "Исламский банк "Заман-Банк"</option>
+                                <option value="HIL">АО "Исламский Банк "Al Hilal"</option>
+                                <option value="INV">АО "Казинвестбанк"</option>
+                                <option value="KKB">АО "КАЗКОММЕРЦБАНК"</option>
+                                <option value="HSB">АО "Народный Банк Казахстана"</option>
+                                <option value="NUR">АО "Нурбанк"</option>
+                                <option value="CIT">АО "Ситибанк Казахстан"</option>
+                                <option value="BCA">АО "Торгово-промышленный Банк Китая в г. Алматы"</option>
+                                <option value="CES">АО "Цеснабанк"</option>
+                                <option value="SBK">АО "Шинхан Банк Казахстан"</option>
+                                <option value="EXI">АО "ЭКСИМБАНК КАЗАХСТАН"</option>
+                                <option value="CED">АО "ЦЕНТРАЛЬНЫЙ ДЕПОЗИТАРИЙ ЦЕННЫХ БУМАГ"</option>
+                                <option value="DVK">АО "Банк Развития Казахстана"</option>
+                                <option value="EAB">ЕВРАЗИЙСКИЙ БАНК РАЗВИТИЯ</option>
+                                <option value="GCV">НАО "Государственная корпорация "Правительство для граждан"</option>
+                                <option value="INE">г.Москва Межгосударственный Банк</option>
+                                <option value="KIC">АО "Казахстанская фондовая биржа"</option>
+                                <option value="KIS">РГП "Казахстанский центр межбанковских расчетов НБРК"</option>
+                                <option value="KKM">РГУ "Комитет казначейства Министерства финансов РК"</option>
+                                <option value="KPS">АО "КАЗПОЧТА"</option>
+                                <option value="NBP">"Банк-кастодиан АО  "ЕНПФ"</option>
+                                <option value="NBR">Республиканское Государств Учреждение  Национальный Банк РК</option>
+                                <option value="NCC">НКО-ЦК "Национальный Клиринговый Центр" (АО)</option>
+                                </select><br />
+                
+                                Рассчетный счет: <input type="text" name="bankAccount" /><br />
+                
+                                Юридический адрес: <input type="text" name="adressJur" /><br />
+                
+                                Фактический адрес: <input type="text" name="adressFact" /><br />
+                
+                                Телефон: <input type="text" name="orgPhone" /><br />
+                
+                                <h2>Доп. соглашение</h2>
+                
+                                Номер приложения: <input type="text" name="supplementNum" /><br />
+                                Дата:   <input type="date" name="supplementDate"><br />
+                
+                                Комиссия: <input type="text" name="commission" /><br />
+                                Кэшбэк: <input type="text" name="cashback" /><br />
+                
+                                Адрес заведения: <input type="text" name="placeAdress" /><br />
+                                График работы заведения: <input type="text" name="workingHours" /><br />
+                                Телефон заведения: <input type="text" name="placePhone" /><br />
+                
+                                Ответственный со стороны доверителя: <input type="text" name="responsiblePartnerName" /><br />
+                                Email: <input type="text" name="responsiblePartnerEmail" /><br />
+                                Телефон: <input type="text" name="responsiblePartnerPhone" /><br />
+                
+                                Ответственный со стороны поверенного: <input type="text" name="responsibleRahmetName" /><br />
+                                Email: <input type="text" name="responsibleRahmetEmail" /><br />
+                                Телефон: <input type="text" name="responsibleRahmetPhone" /><br />
+                
+                                <input type="submit" name="submit" value="Отправь меня!" />
+                
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
 </body>
 </html>
