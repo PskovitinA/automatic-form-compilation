@@ -381,6 +381,15 @@ $responsibleRahmetName = $_POST['responsibleRahmetName'];
 $responsibleRahmetEmail = $_POST['responsibleRahmetEmail'];
 $responsibleRahmetPhone = $_POST['responsibleRahmetPhone'];
 
+if (isset($_POST['anvar']) && $_POST['anvar'] == 'yes'){
+    $finConsul = "Финансовый консультант:";
+    $finSignature = "______________/ Бакиев. А. А.";
+    ;}
+    else {
+        $finConsul = '';
+        $finSignature = '';
+    }
+
 $fileName = "Dogovor" . "$agreementNum" . ".docx";
 
 $templateProcessor->setValue('agreementNum', "$agreementNum");
@@ -419,6 +428,8 @@ $templateProcessor->setValue('bankName', "$bankName");
 $templateProcessor->setValue('bankName', "$bankName");
 $templateProcessor->setValue('bankAccount', "$bankAccount");
 $templateProcessor->setValue('bankId', "$bankID");
+$templateProcessor->setValue("finConsul", "$finConsul");
+$templateProcessor->setValue("finSignature", "$finSignature");
 
 $templateProcessor->saveAs("$fileName");
 
