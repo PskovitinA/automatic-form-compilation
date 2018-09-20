@@ -63,13 +63,23 @@ if ($_POST['orgType'] == 'too') {
 
 $orgNum = $_POST['orgNum'];
 $adressJur = $_POST['adressJur'];
-$adressPost = $adressJur;
-$adressFact = $adressJur;
 $orgPhone = $_POST['orgPhone'];
 
-//Проверка фактического адреса на совпадение с юридическим
-if ($_POST['adressFact'] != $adressJur)
+//Если фактический адрес не указан, ставим юридический
+if ($_POST['adressFact'] == '') {
+    $adressFact = $adressJur;
+}
+else {
     $adressFact = $_POST['adressFact'];
+};
+
+//Если почтовый адрес не указан, ставим юридический
+if ($_POST['adressPost'] == '') {
+    $adressPost = $adressJur;
+}
+else {
+    $adressPost = $_POST['adressPost'];
+};
 
 //Банковские реквизиты. Держать актуальными.
 $bankInfo = array(
