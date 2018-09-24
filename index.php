@@ -42,6 +42,9 @@ $city = $_POST['city'];
 $agreementDate = $_POST['date'];
 $agreementDate = date('d ' . $months[date('n')] . ' Y', strtotime($agreementDate));
 
+//Убираем слэш из имени файла
+$fileNum = explode('/', $agreementNum);
+
 //Массив для разных типов организаций
 $orgTypes = array(
     'too' => array('ТОО','Товарищество с ограниченной ответственностью','ое','БИН'),
@@ -400,7 +403,7 @@ if (isset($_POST['anvar']) && $_POST['anvar'] == 'yes'){
         $finSignature = '';
     }
 
-$fileName = "Dogovor" . "$agreementNum" . ".docx";
+$fileName = "Dogovor" . "$fileNum[0]" . "-" . "$fileNum[1]" . ".docx";
 
 $templateProcessor->setValue('agreementNum', "$agreementNum");
 $templateProcessor->setValue('agreementDate', "$agreementDate");
