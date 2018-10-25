@@ -1,7 +1,8 @@
 {
     "name": "pskovititn/automatic-form-compilation",
     "require": {
-        "phpoffice/phpword": "^0.15.0"
+        "phpoffice/phpword": "^0.15.0",
+        "krustnic/docx-merge": "^1.0"
     },
     "authors": [
         {

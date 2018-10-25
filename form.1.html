@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Форма отправки</title>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="import" href="suptempl.html">
+    <link rel="stylesheet" href="css/app.css?v=5.7">
 </head>
 
-<body class="fixed-sidebar pace-done body-small mini-navbar">
+<body class="fixed-sidebar pace-done">
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
-            <div class="sidebar-collapse" style="overflow: hidden; width: auto; height: 100%;">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div class="sidebar-collapse" style="overflow: hidden; width: auto; height: 100%;">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <span>
@@ -30,18 +28,11 @@
     </nav>
 
     <div id="page-wrapper" class="gray-bg" style="min-height: 608px;">
-        <div class="row border-bottom">
-            <nav role="navigation" class="navbar navbar-static-top white-bg" style="margin-bottom: 0px;">
-                <div class="navbar-header">
-                    <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                </div>
-                <div class="col-lg-10">
-                    <h2>Форма автозаполнения договора</h2>
-                </div>       
-            </nav>
-            <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Форма автозаполнения договора</h2>
+            </div>
+            <div class="wrapper wrapper-content">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
@@ -58,7 +49,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Город:</label>
+                                    <label class="col-sm-2 control-label">Город:</label>
                                         <div class="col-sm-10">
                                             <div>
                                                 <input type="radio" name="city" id="Almaty" value="Алматы">
@@ -270,17 +261,123 @@
                                     <div class="hr-line-dashed"></div>
                                 </div>
                 
-                                <input type="hidden" id="gloCount" name="gloCount" value="1">
-                                
-                                <div id="supplement">
-
+                                <div class="ibox-title">
+                                    <h5>Доп. соглашение</h5>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-sm-4 col-sm-offset-2">
-                                        <input class="btn btn-primary" type="button" onclick="adddop()" value="Добавить приложение" />
+                
+                                <div class="ibox-content">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Номер приложения:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="supplementNum" />
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4 col-sm-offset-2">
-                                        <input class="btn btn-primary" type="submit" name="submit" value="Отправь меня!" />
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Дата:</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-daterange input-group">
+                                                <input type="date" class="input-sm form-control" style="width: 240px" name="supplementDate">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Комиссия:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="commission" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Кэшбэк:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="cashback" />
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Адрес заведения:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="placeAdress" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">График работы заведения:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="workingHours" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Телефон заведения: +7</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="placePhone" minlength="10" maxlength="10"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Ответственный со стороны доверителя:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="responsiblePartnerName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="responsiblePartnerEmail" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Телефон: +7</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="responsiblePartnerPhone" minlength="10" maxlength="10" />
+                                        </div>   
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                    
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Ответственный со стороны поверенного:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="responsibleRahmetName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="responsibleRahmetEmail" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Телефон: +7</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="responsibleRahmetPhone" minlength="10" maxlength="10" />
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+
+                                    <div class="form-group">
+                                            <label class="col-sm-2 control-label">Подпись финансового аналитика</label>
+                                            <div class="col-sm-10">
+                                                <input type="checkbox" class="form-control" name="anvar" value="yes"/>
+                                            </div>
+                                        </div>
+
+                                    <div class="hr-line-dashed"></div>
+                
+                                    <div class="form-group">
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                            <input class="btn btn-primary" type="submit" name="submit" value="Отправь меня!" />
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -293,40 +390,15 @@
 </div>
 
 <script src="https://use.fontawesome.com/b5a299472a.js"></script>
-<script src="js/app.js" type="text/javascript"></script>
 
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
 <script>
-    var counter = 1;
-    function adddop() {
-        var doc = document.querySelector('link[rel="import"]').import;
-        var supple = doc.querySelector('.supplewrap');
-        var clone = document.importNode(supple, true);
-        document.querySelector('#supplement').appendChild(clone);
-        
-        var supplement = document.getElementById('supplewrap')
-        var title = supplement.querySelector('.ibox-title');
-        title.children[0].innerHTML = '<h5>Доп. соглашение #' + counter + '</h5>';
-
-        var formControl = supplement.querySelectorAll('.namechange')
-        formControl.forEach(function(child) {
-            var inName = child.getAttribute('name') + counter;
-            child.setAttribute('name', inName);
-            console.log(child)                
-        });
-        
-        var gloCount = document.getElementById('gloCount');
-        gloCount.setAttribute('value', counter);
-
-        var supplementNum = document.getElementById('supplementNum');
-        console.log(supplementNum);
-        supplementNum.setAttribute('value', counter);
-        supplementNum.setAttribute('id', "");
-        
-        supplement.setAttribute('id', "");
-
-        counter ++;
-
-    }
+if ( $('[type="date"]').prop('type') != 'date' ) {
+    $('[type="date"]').datepicker();
+}
 </script>
 
 </body>
