@@ -35,7 +35,7 @@ function file_force_download($file) {
         // читаем файл и отправляем его пользователю
         readfile($file);
         //Подчищаем за собой.
-        unlink($file);
+        //unlink($file);
         return;
     }
 }
@@ -402,7 +402,9 @@ function templateBody($arg_1)
     $attorneyPosition = $attorneySelect[1];
     $attorneyShortName = $attorneySelect[2];
 
+    $sid = $arg_1['SID'];
     $fileName = "Body" . "$agreementNum" . ".docx";
+    $filePath = "tmp/$sid/$fileName";
 
     $templateProcessor->setValue('agreementNum', "$agreementNum");
     $templateProcessor->setValue('agreementDate', "$agreementDate");
@@ -427,8 +429,8 @@ function templateBody($arg_1)
     $templateProcessor->setValue('bankAccount', "$bankAccount");
     $templateProcessor->setValue('bankId', "$bankID");
 
-    $templateProcessor->saveAs("$fileName");
-    return ("$fileName");
+    $templateProcessor->saveAs("$filePath");
+    return ("$filePath");
 }
 
 function templateSupplement($arg_2, $counter)
@@ -524,7 +526,9 @@ function templateSupplement($arg_2, $counter)
     $attorneyPosition = $attorneySelect[1];
     $attorneyShortName = $attorneySelect[2];
 
+    $sid = $arg_2['SID'];
     $fileName = "Supplement" . "$counter" . ".docx";
+    $filePath = "tmp/$sid/$fileName";
 
     $templateProcessor->setValue('agreementNum', "$agreementNum");
     $templateProcessor->setValue('agreementDate', "$agreementDate");
@@ -560,6 +564,6 @@ function templateSupplement($arg_2, $counter)
     $templateProcessor->setValue('finConsul', "$finConsul");
     $templateProcessor->setValue('finSignature', "$finSignature");
 
-    $templateProcessor->saveAs("$fileName");
-    return ("$fileName");
+    $templateProcessor->saveAs("$filePath");
+    return ("$filePath");
 }
