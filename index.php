@@ -94,7 +94,7 @@
                                         <div class="col-sm-10">
                                             <div>
                                                 <input type="radio" name="attorney" id="SAD" value="SAD">
-                                                <label for="SAD">Махсутов С.А.</label>
+                                                <label for="SAD">Махсутов С.У.</label>
                                             </div>
                                             <div>
                                                 <input type="radio" name="attorney" id="AZA" value="AZA">
