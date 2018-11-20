@@ -478,16 +478,20 @@ function templateSupplement($arg_2, $counter)
     );
 
     //Выбираем периодичность оплаты и добавляем подпись фин.консультанта
-    if ($arg_2["paymentTime$counter"] == 'weekly'){
-        $finConsul = "Финансовый консультант:";
-        $finSignature = "______________/ Бакиев. А. А.";
-        $paymentTime = $paymentTimeArray[1];
-        }
-        else {
-            $finConsul = '';
-            $finSignature = '';
-            $paymentTime = $paymentTimeArray[0];
-        }
+    // if ($arg_2["paymentTime$counter"] == 'weekly'){
+    //     $finConsul = "Финансовый консультант:";
+    //     $finSignature = "______________/ Бакиев. А. А.";
+    //     $paymentTime = $paymentTimeArray[1];
+    //     }
+    //     else {
+    //         $finConsul = '';
+    //         $finSignature = '';
+    //         $paymentTime = $paymentTimeArray[0];
+    //     }
+
+    $finConsul = '';
+    $finSignature = '';
+    $paymentTime = $paymentTimeArray[1];
 
     $orgName = $arg_2['orgName'];
 
