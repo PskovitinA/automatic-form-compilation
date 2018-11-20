@@ -131,7 +131,7 @@ function bankSelect($bankAbbr){
         case 'ATF':
             $bankName = $bankInfo['ATF'][1];
             $bankID = $bankInfo['ATF'][0];
-            break; 
+            break;
         case 'BKN':
             $bankName = $bankInfo['BKN'][1];
             $bankID = $bankInfo['BKN'][0];
@@ -207,7 +207,7 @@ function bankSelect($bankAbbr){
         case 'NUR':
             $bankName = $bankInfo['NUR'][1];
             $bankID = $bankInfo['NUR'][0];
-            break; 
+            break;
         case 'CIT':
             $bankName = $bankInfo['CIT'][1];
             $bankID = $bankInfo['CIT'][0];
@@ -277,7 +277,7 @@ function bankSelect($bankAbbr){
             $bankID = $bankInfo['NCC'][0];
             break;
         };
-    return array($bankName, $bankID);   
+    return array($bankName, $bankID);
 };
 
 //Выбор типов организаций
@@ -307,6 +307,8 @@ function attorneySelect($attArg){
         'ZHA' => array('Начальника отдела активных продаж Жолдас Жалгаса Жарасулы, действующего на основании Доверенности № 8 от 05.06.2018 г.','Начальник отдела активных продаж','Жолдас Жалгас Жарасулы','Жолдас Ж. Ж.'),
         'DAU' => array('Начальника отдела активных продаж Тазабекова Даурена Жумагалиевича, действующего на основании Доверенности № 17/1 от 01.09.2018 г.','Начальник отдела активных продаж','Тазабеков Даурен Жумагалиевич','Тазабеков Д. Ж.'),
         'BAU' => array('Начальника отдела активных продаж Джанабаева Бауржана Адильжановича, действующего на основании Доверенности № 17/2 от 01.09.2018 г.','Начальник отдела активных продаж','Джанабаев Бауржан Адильжанович','Джанабаев Б. А.'),
+        'ZHN' => array('Начальника отдела активных продаж Ибраевой Жанар Раулановны, действующего на основании Доверенности № 11 от 01.07.2018 г.','Начальник отдела активных продаж','Ибраева Жанар Раулановна','Ибраева Ж. Р.'),
+        'OKE' => array('Начальника отдела активных продаж Өміржан Қажымұрата Еркінұлы, действующего на основании Доверенности № 17 от 16.08.2018 г.','Начальник отдела активных продаж','Өміржан Қажымұрат Еркінұлы','Өміржан Қ. Е.'),
     );
     switch ($attArg) {
         case 'SAD':
@@ -334,6 +336,16 @@ function attorneySelect($attArg){
             $attorneyPosition = $attorneyArray['BAU']['1'];
             $attorneyShortName = $attorneyArray['BAU'][3];
             break;
+        case 'ZHN':
+            $attorney = $attorneyArray['ZHN'][0];
+            $attorneyPosition = $attorneyArray['ZHN']['1'];
+            $attorneyShortName = $attorneyArray['ZHN'][3];
+            break;
+        case 'OKE':
+            $attorney = $attorneyArray['OKE'][0];
+            $attorneyPosition = $attorneyArray['OKE']['1'];
+            $attorneyShortName = $attorneyArray['OKE'][3];
+            break;
     }
     return array($attorney, $attorneyPosition, $attorneyShortName);
 };
@@ -358,7 +370,7 @@ function templateBody($arg_1)
     $orgTypeShort = $orgForm[1];
     $orgNumType = $orgForm[2];
     $orgTypeEnding = $orgForm[3];
-   
+
     $orgNum = $arg_1['orgNum'];
     $adressJur = $arg_1['adressJur'];
     $orgPhone = $arg_1['orgPhone'];
@@ -444,14 +456,14 @@ function templateSupplement($arg_2, $counter)
     $supplementNum = $arg_2["supplementNum$counter"];
     $supplementDate = $arg_2["supplementDate$counter"];
     $supplementDate = date('d ' . $months[date('n')] . ' Y', strtotime($supplementDate));
-    
+
     $commission = $arg_2["commission$counter"];
     $cashback = $arg_2["cashback$counter"];
-    
+
     $placeAdress = $arg_2["placeAdress$counter"];
     $workingHours = $arg_2["workingHours$counter"];
     $placePhone = $arg_2["placePhone$counter"];
-    
+
     $responsiblePartnerName = $arg_2["responsiblePartnerName$counter"];
     $responsiblePartnerEmail = $arg_2["responsiblePartnerEmail$counter"];
     $responsiblePartnerPhone = $arg_2["responsiblePartnerPhone$counter"];
@@ -485,7 +497,7 @@ function templateSupplement($arg_2, $counter)
     $bankID = $bankSelect[1];
 
     $bankAccount = $arg_2['bankAccount'];
-    
+
     //Выбираем тип организации
     $orgForm = orgType($arg_2['orgType']);
     $orgType = $orgForm[0];

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Форма отправки</title>
+    <div class="test"></div>
     <link rel="stylesheet" href="css/app.css">
     <link rel="import" href="suptempl.html">
 </head>
@@ -18,7 +19,7 @@
                         <img alt="image" class="img-circle" width="170" src="images/logo-rahmet-small.png">
                         </span>
                 </li>
-    
+
                 <li class="">
                     <a href="https://admin.choco.kz/" target="_blank">
                         <i class="fa fa-home"></i>
@@ -32,14 +33,14 @@
     <div id="page-wrapper" class="gray-bg" style="min-height: 608px;">
         <div class="row border-bottom">
             <nav role="navigation" class="navbar navbar-static-top white-bg" style="margin-bottom: 0px;">
-                <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary "> 
+                <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
                     <div class="navbar-header">
                         <i class="fa fa-bars"></i>
                     </div>
                 </a>
                 <div class="col-lg-10">
                     <h2>Форма автозаполнения договора</h2>
-                </div>       
+                </div>
             </nav>
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
@@ -56,7 +57,7 @@
                                             <input type="text" name="agreementNum" class="form-control" />
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Город:</label>
                                         <div class="col-sm-10">
@@ -67,12 +68,12 @@
                                             <div>
                                                 <input type="radio" name="city" id="Astana" value="Астана">
                                                 <label for="Astana">Астана</label>
-                                            </div>  
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Дата:</label>                    
+                                        <label class="col-sm-2 control-label">Дата:</label>
                                         <div class="col-sm-10">
                                             <div class="input-daterange input-group" >
                                                 <input class="input-sm form-control" id="datepicker" type="date" name="date" style="width: 240px">
@@ -86,9 +87,9 @@
                                 <div class="ibox-title">
                                     <h5>Информация по нам</h5>
                                 </div>
-                                
+
                                 <div class="ibox-content">
-                                    <div class="form-group">                    
+                                    <div class="form-group">
                                         <label class="col-sm-2 control-label">Поверенный со стороны Рахмета:</label>
                                         <div class="col-sm-10">
                                             <div>
@@ -111,6 +112,14 @@
                                                 <input type="radio" name="attorney" id="BAU" value="BAU">
                                                 <label for="BAU">Джанабаев Б. А.</label>
                                             </div>
+                                            <div>
+                                                <input type="radio" name="attorney" id="ZHN" value="ZHN">
+                                                <label for="ZHN">Ибраева Ж. Р.</label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="attorney" id="OKE" value="OKE">
+                                                <label for="OKE">Өміржан Қ. Е.</label>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -122,7 +131,7 @@
                                 </div>
 
                                 <div class="ibox-content">
-                                    <div class="form-group">                    
+                                    <div class="form-group">
                                             <label class="col-sm-2 control-label">Форма организации:</label>
                                             <div class="col-sm-10">
                                                 <div>
@@ -144,7 +153,7 @@
                                     </div>
 
                                     <div class="hr-line-dashed"></div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Директор(в родительном падеже):</label>
                                         <div class="col-sm-10">
@@ -167,14 +176,14 @@
                                     </div>
 
                                     <div class="hr-line-dashed"></div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">БИН/ИИН:</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="orgNum" class="form-control" minlength="12" maxlength="12"/>
                                         </div>
                                     </div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Банк:</label>
                                         <div class="col-sm-10">
@@ -229,7 +238,7 @@
                                             </select>
                                         </div>
                                     </div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Рассчетный счет:</label>
                                         <div class="col-sm-10">
@@ -238,7 +247,7 @@
                                     </div>
 
                                     <div class="hr-line-dashed"></div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Юридический адрес:</label>
                                         <div class="col-sm-10">
@@ -252,14 +261,14 @@
                                             <input type="text" class="form-control" name="adressPost" />
                                         </div>
                                     </div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Фактический адрес(оставь пустым, если совпадает с юридическим):</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="adressFact" />
                                         </div>
                                     </div>
-                    
+
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Телефон: +7</label>
                                         <div class="col-sm-10">
@@ -271,7 +280,7 @@
                                 </div>
 
                                 <input type="hidden" id="gloCount" name="gloCount" value="1">
-                                
+
                                 <div id="supplement">
 
                                 </div>
@@ -288,7 +297,7 @@
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 </div>
 
@@ -302,7 +311,7 @@
         var supple = doc.querySelector('.supplewrap');
         var clone = document.importNode(supple, true);
         document.querySelector('#supplement').appendChild(clone);
-        
+
         var supplement = document.getElementById('supplewrap')
         var title = supplement.querySelector('.ibox-title');
         title.children[0].innerHTML = '<h5>Доп. соглашение #' + counter + '</h5>';
@@ -311,9 +320,9 @@
         formControl.forEach(function(child) {
             var inName = child.getAttribute('name') + counter;
             child.setAttribute('name', inName);
-            console.log(child)                
+            console.log(child)
         });
-        
+
         var gloCount = document.getElementById('gloCount');
         gloCount.setAttribute('value', counter);
 
@@ -321,7 +330,7 @@
         console.log(supplementNum);
         supplementNum.setAttribute('value', counter);
         supplementNum.setAttribute('id', "");
-        
+
         supplement.setAttribute('id', "");
 
         counter ++;

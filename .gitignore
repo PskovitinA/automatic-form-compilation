@@ -3,3 +3,4 @@ composer.lock
 MyWordFile.docx
 .idea
 test.*
+composer.phar
