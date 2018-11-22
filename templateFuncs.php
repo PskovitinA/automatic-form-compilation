@@ -477,21 +477,17 @@ function templateSupplement($arg_2, $counter)
         'Перечисление денег, полученных от Пользователей за приобретенные товары/работы/услуги Доверителя за вычетом вознаграждения Поверенного и предоставленных скидок Пользователям, осуществляется Поверенным в пользу Доверителя еженедельно, в течение пяти рабочих дней, следующих за окончанием расчетной недели.'
     );
 
-    //Выбираем периодичность оплаты и добавляем подпись фин.консультанта
-    // if ($arg_2["paymentTime$counter"] == 'weekly'){
-    //     $finConsul = "Финансовый консультант:";
-    //     $finSignature = "______________/ Бакиев. А. А.";
-    //     $paymentTime = $paymentTimeArray[1];
-    //     }
-    //     else {
-    //         $finConsul = '';
-    //         $finSignature = '';
-    //         $paymentTime = $paymentTimeArray[0];
-    //     }
-
-    $finConsul = '';
-    $finSignature = '';
-    $paymentTime = $paymentTimeArray[1];
+    Выбираем периодичность оплаты и добавляем подпись фин.консультанта
+    if ($arg_2["paymentTime$counter"] == 'weekly'){
+        $finConsul = "Финансовый консультант:";
+        $finSignature = "______________/ Бакиев. А. А.";
+        $paymentTime = $paymentTimeArray[1];
+        }
+        else {
+            $finConsul = '';
+            $finSignature = '';
+            $paymentTime = $paymentTimeArray[0];
+        }
 
     $orgName = $arg_2['orgName'];
 
