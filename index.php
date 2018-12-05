@@ -113,6 +113,10 @@
                                                 <label for="BAU">Джанабаев Б. А.</label>
                                             </div>
                                             <div>
+                                                <input type="radio" name="attorney" id="AZT" value="AZT">
+                                                <label for="AZT">Смагулов А. К.</label>
+                                            </div>
+                                            <div>
                                                 <input type="radio" name="attorney" id="ZHN" value="ZHN">
                                                 <label for="ZHN">Ибраева Ж. Р.</label>
                                             </div>

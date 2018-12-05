@@ -6,15 +6,15 @@ require 'vendor/autoload.php';
 function months(){
 $months = array( 1 => 'января' , 'февраля' , 'марта' , 'апреля' , 'мая' , 'июня' , 'июля' , 'августа' , 'сентября' , 'октября' , 'ноября' , 'декабря' );
 return $months;
-}
+};
 
 //Это для отладки. Потом удалить.
-function console_log( $data ) {
-    $output  = "<script>console.log( 'PHP debugger: ";
-    $output .= json_encode(print_r($data, true));
-    $output .= "' );</script>";
-    echo $output;
-  }
+// function console_log( $data ) {
+//     $output  = "<script>console.log( 'PHP debugger: ";
+//     $output .= json_encode(print_r($data, true));
+//     $output .= "' );</script>";
+//     echo $output;
+//   }
 
 //Функция для отправки файла пользователю. Уперто с Хабра.
 function file_force_download($file) {
@@ -38,7 +38,7 @@ function file_force_download($file) {
         //unlink($file);
         return;
     }
-}
+};
 
 function bankSelect($bankAbbr){
     //Банковские реквизиты. Держать актуальными.
@@ -307,8 +307,9 @@ function attorneySelect($attArg){
         'ZHA' => array('Начальника отдела активных продаж Жолдас Жалгаса Жарасулы, действующего на основании Доверенности № 8 от 05.06.2018 г.','Начальник отдела активных продаж','Жолдас Жалгас Жарасулы','Жолдас Ж. Ж.'),
         'DAU' => array('Начальника отдела активных продаж Тазабекова Даурена Жумагалиевича, действующего на основании Доверенности № 17/1 от 01.09.2018 г.','Начальник отдела активных продаж','Тазабеков Даурен Жумагалиевич','Тазабеков Д. Ж.'),
         'BAU' => array('Начальника отдела активных продаж Джанабаева Бауржана Адильжановича, действующего на основании Доверенности № 17/2 от 01.09.2018 г.','Начальник отдела активных продаж','Джанабаев Бауржан Адильжанович','Джанабаев Б. А.'),
-        'ZHN' => array('Начальника отдела активных продаж Ибраевой Жанар Раулановны, действующего на основании Доверенности № 11 от 01.07.2018 г.','Начальник отдела активных продаж','Ибраева Жанар Раулановна','Ибраева Ж. Р.'),
-        'OKE' => array('Начальника отдела активных продаж Өміржан Қажымұрата Еркінұлы, действующего на основании Доверенности № 17 от 16.08.2018 г.','Начальник отдела активных продаж','Өміржан Қажымұрат Еркінұлы','Өміржан Қ. Е.'),
+        'AZT' => array('Главного менеджера отдела активных продаж Смагулова Азата Кайратовича, действующего на основании Доверенности № 14 от 08.08.2018 г.','Главный менеджер отдела активных продаж','Смагулов Азат Кайратович','Смагулов А. К.'),
+        'ZHN' => array('Директора представительства ТОО «Интернет лояльность» в городе Астана Ибраевой Жанар Раулановны, действующей на основании Доверенности № 15 от 15.08.2018 г.','Директор представительства ТОО «Интернет лояльность» в городе Астана','Ибраева Жанар Раулановна','Ибраева Ж. Р.'),
+        'OKE' => array('Начальника отдела продаж Өміржан Қажымұрата Еркінұлы, действующего на основании Доверенности № 17 от 16.08.2018 г.','Начальник отдела продаж','Өміржан Қажымұрат Еркінұлы','Өміржан Қ. Е.'),
     );
     switch ($attArg) {
         case 'SAD':
@@ -336,6 +337,11 @@ function attorneySelect($attArg){
             $attorneyPosition = $attorneyArray['BAU']['1'];
             $attorneyShortName = $attorneyArray['BAU'][3];
             break;
+        case 'AZT':
+            $attorney = $attorneyArray['AZT'][0];
+            $attorneyPosition = $attorneyArray['AZT']['1'];
+            $attorneyShortName = $attorneyArray['AZT'][3];
+            break;
         case 'ZHN':
             $attorney = $attorneyArray['ZHN'][0];
             $attorneyPosition = $attorneyArray['ZHN']['1'];
@@ -350,9 +356,15 @@ function attorneySelect($attArg){
     return array($attorney, $attorneyPosition, $attorneyShortName);
 };
 
+//пилим основной договор
 function templateBody($arg_1)
 {
-    $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('templates/templateBody.docx');
+    if($arg_1['city']=='Алматы'){
+      $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('templates/templateBody.docx');
+    }
+    else {
+      $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('templates/templateBodyAst.docx');
+    };
 
     $months = months();
 
@@ -443,8 +455,9 @@ function templateBody($arg_1)
 
     $templateProcessor->saveAs("$filePath");
     return ("$filePath");
-}
+};
 
+//пилим приложуху к договору
 function templateSupplement($arg_2, $counter)
 {
     $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('templates/templateSupplement.docx');
@@ -473,21 +486,21 @@ function templateSupplement($arg_2, $counter)
     $responsibleRahmetPhone = $arg_2["responsibleRahmetPhone$counter"];
 
     $paymentTimeArray = array (
-        'Перечисление денег, полученных от Пользователей в Отчетном периоде за приобретенные товары/работы/услуги Доверителя за вычетом вознаграждения Поверенного и предоставленных скидок Пользователям, осуществляется Поверенным в пользу Доверителя ежемесячно не позднее 5-ти рабочих дней с даты окончания Отчётного периода. ',
-        'Перечисление денег, полученных от Пользователей за приобретенные товары/работы/услуги Доверителя за вычетом вознаграждения Поверенного и предоставленных скидок Пользователям, осуществляется Поверенным в пользу Доверителя еженедельно, в течение пяти рабочих дней, следующих за окончанием расчетной недели.'
+        'ежемесячно не позднее 5-ти рабочих дней с даты окончания Отчётного периода.',
+        'еженедельно в течение 5 рабочих дней следующих за окончанием расчетного периода.'
     );
 
     //Выбираем периодичность оплаты и добавляем подпись фин.консультанта
     if ($arg_2["paymentTime$counter"] == 'weekly'){
-        $finConsul = "Финансовый консультант:";
-        $finSignature = "______________/ Бакиев. А. А.";
+        // $finConsul = "Финансовый консультант:";
+        // $finSignature = "______________/ Бакиев. А. А.";
         $paymentTime = $paymentTimeArray[1];
         }
-        else {
-            $finConsul = '';
-            $finSignature = '';
-            $paymentTime = $paymentTimeArray[0];
-        }
+    else {
+        // $finConsul = '';
+        // $finSignature = '';
+        $paymentTime = $paymentTimeArray[0];
+        };
 
     $orgName = $arg_2['orgName'];
 
@@ -538,6 +551,7 @@ function templateSupplement($arg_2, $counter)
     $attorneyPosition = $attorneySelect[1];
     $attorneyShortName = $attorneySelect[2];
 
+    //создаем индивидуальную папку для сессии
     $sid = $arg_2['SID'];
     $fileName = "Supplement" . "$counter" . ".docx";
     $filePath = "tmp/$sid/$fileName";
@@ -573,8 +587,8 @@ function templateSupplement($arg_2, $counter)
     $templateProcessor->setValue('attorneyPosition', "$attorneyPosition");
     $templateProcessor->setValue('attorneyShortName', "$attorneyShortName");
     $templateProcessor->setValue('paymentTime', "$paymentTime");
-    $templateProcessor->setValue('finConsul', "$finConsul");
-    $templateProcessor->setValue('finSignature', "$finSignature");
+    // $templateProcessor->setValue('finConsul', "$finConsul");
+    // $templateProcessor->setValue('finSignature', "$finSignature");
 
     $templateProcessor->saveAs("$filePath");
     return ("$filePath");
