@@ -43,52 +43,52 @@ function file_force_download($file) {
 function bankSelect($bankAbbr){
     //Банковские реквизиты. Держать актуальными.
     $bankInfo = array(
-        'ALT' => array('ATYNKZKA','АО "Altyn Bank" (ДБ АО "Народный Банк Казахстана")'),
-        'ACB' => array('LARIKZKA','АО "AsiaCredit Bank (АзияКредит Банк)"'),
-        'RBK' => array('KINCKZKA','Акционерное общество "Банк "Bank RBK"'),
-        'CBK' => array('TBKBKZKA','АО "Capital Bank Kazakhstan"'),
-        'DEL' => array('NFBAKZ23','АО "Delta Bank"'),
-        'FOR' => array('IRTYKZKA','АО "ForteBank"'),
-        'KAS' => array('CASPKZKA','АО "KASPI BANK"'),
-        'QAZ' => array('SENIKZKA','АО "Qazaq Banki"'),
-        'TEN' => array('TNGRKZKX','АО "Tengri Bank"'),
-        'ATF' => array('ALMNKZKA','АО "АТФБанк"'),
-        'BKN' => array('KSNVKZKA','АО "Банк Kassa Nova"'),
-        'AST' => array('ASFBKZKA','АО "Банк "Астаны"'),
-        'BCK' => array('KCJBKZKX','АО "Банк ЦентрКредит"'),
-        'BEC' => array('ABNAKZKX','Акционерное общество "First Heartland Bank"'),
-        'ALF' => array('ALFAKZKA','АО "ДОЧЕРНИЙ БАНК "АЛЬФА-БАНК"'),
-        'CIN' => array('BKCHKZKA','АО ДБ "БАНК КИТАЯ В КАЗАХСТАНЕ"'),
-        'KZI' => array('KZIBKZKA','АО "ДБ "КАЗАХСТАН-ЗИРААТ ИНТЕРНЕШНЛ БАНК"'),
-        'PAK' => array('NBPAKZKA','АО ДБ "Национальный Банк Пакистана" в Казахстане'),
-        'HOM' => array('INLMKZKA','ДБ АО "Банк Хоум Кредит"'),
-        'SBR' => array('SABRKZKA','ДБ АО "Сбербанк"'),
+        'ALT' => array('ATYNKZKA','АО «Altyn Bank» (ДБ АО «Народный Банк Казахстана»)'),
+        'ACB' => array('LARIKZKA','АО «AsiaCredit Bank (АзияКредит Банк)»'),
+        'RBK' => array('KINCKZKA','АО «Bank RBK»'),
+        'CBK' => array('TBKBKZKA','АО «Capital Bank Kazakhstan»'),
+        'DEL' => array('NFBAKZ23','АО «Delta Bank»'),
+        'FOR' => array('IRTYKZKA','АО «ForteBank»'),
+        'KAS' => array('CASPKZKA','АО «KASPI BANK»'),
+        'QAZ' => array('SENIKZKA','АО «Qazaq Banki»'),
+        'TEN' => array('TNGRKZKX','АО «Tengri Bank»'),
+        'ATF' => array('ALMNKZKA','АО «АТФБанк»'),
+        'BKN' => array('KSNVKZKA','АО «Банк Kassa Nova»'),
+        'AST' => array('ASFBKZKA','АО «Банк Астаны»'),
+        'BCK' => array('KCJBKZKX','АО «Банк ЦентрКредит»'),
+        'BEC' => array('ABNAKZKX','АО «First Heartland Bank»'),
+        'ALF' => array('ALFAKZKA','АО ДБ «АЛЬФА-БАНК»'),
+        'CIN' => array('BKCHKZKA','АО ДБ «БАНК КИТАЯ В КАЗАХСТАНЕ»'),
+        'KZI' => array('KZIBKZKA','АО ДБ «КАЗАХСТАН-ЗИРААТ ИНТЕРНЕШНЛ БАНК»'),
+        'PAK' => array('NBPAKZKA','АО ДБ «Национальный Банк Пакистана» в Казахстане'),
+        'HOM' => array('INLMKZKA','ДБ АО «Банк Хоум Кредит»'),
+        'SBR' => array('SABRKZKA','ДБ АО «Сбербанк»'),
         'VTB' => array('VTBAKZKZ','ДО АО Банк ВТБ (Казахстан)'),
-        'EVR' => array('EURIKZKA','АО "Евразийский Банк"'),
-        'ZHI' => array('HCSKKZKA','АО "Жилстройсбербанк Казахстана"'),
-        'ZAM' => array('ZAJSKZ22','АО "Исламский банк "Заман-Банк"'),
-        'HIL' => array('HLALKZKZ','АО "Исламский Банк "Al Hilal"'),
-        'INV' => array('KAZSKZKA','АО "Казинвестбанк"'),
-        'KKB' => array('KZKOKZKX','АО "КАЗКОММЕРЦБАНК"'),
-        'HSB' => array('HSBKKZKX','АО "Народный Банк Казахстана"'),
-        'NUR' => array('NURSKZKX','АО "Нурбанк"'),
-        'CIT' => array('CITIKZKA','АО "Ситибанк Казахстан"'),
-        'BCA' => array('ICBKKZKX','АО "Торгово-промышленный Банк Китая в г. Алматы"'),
-        'CES' => array('TSESKZKA','АО "Цеснабанк"'),
-        'SBK' => array('SHBKKZKA','АО "Шинхан Банк Казахстан"'),
-        'EXI' => array('EXKAKZKA','АО "ЭКСИМБАНК КАЗАХСТАН"'),
-        'CED' => array('CEDUKZKA','АО "ЦЕНТРАЛЬНЫЙ ДЕПОЗИТАРИЙ ЦЕННЫХ БУМАГ"'),
-        'DVK' => array('DVKAKZKA','АО "Банк Развития Казахстана"'),
+        'EVR' => array('EURIKZKA','АО «Евразийский Банк»'),
+        'ZHI' => array('HCSKKZKA','АО «Жилстройсбербанк Казахстана»'),
+        'ZAM' => array('ZAJSKZ22','АО «Исламский банк "Заман-Банк»'),
+        'HIL' => array('HLALKZKZ','АО «Исламский Банк «Al Hilal»'),
+        'INV' => array('KAZSKZKA','АО «Казинвестбанк»'),
+        'KKB' => array('KZKOKZKX','АО «КАЗКОММЕРЦБАНК»'),
+        'HSB' => array('HSBKKZKX','АО «Народный Банк Казахстана»'),
+        'NUR' => array('NURSKZKX','АО «Нурбанк»'),
+        'CIT' => array('CITIKZKA','АО «Ситибанк Казахстан»'),
+        'BCA' => array('ICBKKZKX','АО «Торгово-промышленный Банк Китая в г. Алматы»'),
+        'CES' => array('TSESKZKA','АО «Цеснабанк»'),
+        'SBK' => array('SHBKKZKA','АО «Шинхан Банк Казахстан»'),
+        'EXI' => array('EXKAKZKA','АО «ЭКСИМБАНК КАЗАХСТАН»'),
+        'CED' => array('CEDUKZKA','АО «ЦЕНТРАЛЬНЫЙ ДЕПОЗИТАРИЙ ЦЕННЫХ БУМАГ»'),
+        'DVK' => array('DVKAKZKA','АО «Банк Развития Казахстана»'),
         'EAB' => array('EABRKZKA','ЕВРАЗИЙСКИЙ БАНК РАЗВИТИЯ'),
-        'GCV' => array('GCVPKZ2A','НАО "Государственная корпорация "Правительство для граждан"'),
+        'GCV' => array('GCVPKZ2A','НАО «Государственная корпорация «Правительство для граждан»'),
         'INE' => array('INEARUMM','г.Москва Межгосударственный Банк'),
-        'KIC' => array('KICEKZKX','АО "Казахстанская фондовая биржа"'),
-        'KIS' => array('KISCKZKX','РГП "Казахстанский центр межбанковских расчетов НБРК"'),
-        'KKM' => array('KKMFKZ2A','РГУ "Комитет казначейства Министерства финансов РК"'),
-        'KPS' => array('KPSTKZKA','АО "КАЗПОЧТА"'),
-        'NBP' => array('NBPFKZKX','"Банк-кастодиан АО  "ЕНПФ"'),
+        'KIC' => array('KICEKZKX','АО «Казахстанская фондовая биржа»'),
+        'KIS' => array('KISCKZKX','РГП «Казахстанский центр межбанковских расчетов НБРК»'),
+        'KKM' => array('KKMFKZ2A','РГУ «Комитет казначейства Министерства финансов РК»'),
+        'KPS' => array('KPSTKZKA','АО «КАЗПОЧТА»'),
+        'NBP' => array('NBPFKZKX','«Банк-кастодиан АО «ЕНПФ»'),
         'NBR' => array('NBRKKZKX','Республиканское Государств Учреждение  Национальный Банк РК'),
-        'NCC' => array('NCCBRUMM','НКО-ЦК "Национальный Клиринговый Центр" (АО)'),
+        'NCC' => array('NCCBRUMM','НКО-ЦК «Национальный Клиринговый Центр» (АО)'),
     );
         //Выбираем переменные из массива
     switch ($bankAbbr) {
@@ -311,6 +311,7 @@ function attorneySelect($attArg){
         'ZHN' => array('Директора представительства ТОО «Интернет лояльность» в городе Астана Ибраевой Жанар Раулановны, действующей на основании Доверенности № 15 от 15.08.2018 г.','Директор представительства ТОО «Интернет лояльность» в городе Астана','Ибраева Жанар Раулановна','Ибраева Ж. Р.'),
         'OKE' => array('Начальника отдела продаж Өміржан Қажымұрата Еркінұлы, действующего на основании Доверенности № 17 от 16.08.2018 г.','Начальник отдела продаж','Өміржан Қажымұрат Еркінұлы','Өміржан Қ. Е.'),
     );
+    
     switch ($attArg) {
         case 'SAD':
             $attorney = $attorneyArray['SAD'][0];
@@ -430,6 +431,8 @@ function templateBody($arg_1)
     $fileName = "Body" . "$agreementNum" . ".docx";
     $filePath = "tmp/$sid/$fileName";
 
+    $responsiblePartnerEmail = $arg_1["responsiblePartnerEmail1"];
+
     $templateProcessor->setValue('agreementNum', "$agreementNum");
     $templateProcessor->setValue('agreementDate', "$agreementDate");
     $templateProcessor->setValue('city', "$city");
@@ -452,6 +455,7 @@ function templateBody($arg_1)
     $templateProcessor->setValue('bankName', "$bankName");
     $templateProcessor->setValue('bankAccount', "$bankAccount");
     $templateProcessor->setValue('bankId', "$bankID");
+    $templateProcessor->setValue('responsiblePartnerEmail', "$responsiblePartnerEmail");
 
     $templateProcessor->saveAs("$filePath");
     return ("$filePath");
