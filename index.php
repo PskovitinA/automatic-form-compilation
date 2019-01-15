@@ -54,7 +54,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Номер договора:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="agreementNum" class="form-control" />
+                                            <input type="text" name="agreementNum" class="form-control" placeholder="P19 или PZ19 или что-там еще, короче не забывайте писать номер полностью"/>
                                         </div>
                                     </div>
 
