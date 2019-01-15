@@ -4,3 +4,4 @@ MyWordFile.docx
 .idea
 test.*
 composer.phar
+/templates/outdated/
