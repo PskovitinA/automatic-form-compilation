@@ -5,3 +5,6 @@ MyWordFile.docx
 test.*
 composer.phar
 /templates/outdated/
+~$*.docx
+/tmp/
+form.html
