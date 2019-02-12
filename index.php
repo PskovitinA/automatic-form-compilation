@@ -93,6 +93,10 @@
                                         <label class="col-sm-2 control-label">Поверенный со стороны Рахмета:</label>
                                         <div class="col-sm-10">
                                             <div>
+                                                <input type="radio" name="attorney" id="NUR" value="NUR">
+                                                <label for="NUR">Темирбаева Н.С.</label>
+                                            </div>
+                                            <div>
                                                 <input type="radio" name="attorney" id="SAD" value="SAD">
                                                 <label for="SAD">Махсутов С.У.</label>
                                             </div>
